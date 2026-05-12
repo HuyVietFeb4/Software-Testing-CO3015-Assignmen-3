@@ -9,7 +9,6 @@ try:
         print("-" * 80)
         for row in reader:
             actual = gradeTest.run_grade_test(row)
-            # Check if either expected result matches the output
             if row['expected1'] in actual or row['expected2'] in actual:
                 status = "PASS"
             else:

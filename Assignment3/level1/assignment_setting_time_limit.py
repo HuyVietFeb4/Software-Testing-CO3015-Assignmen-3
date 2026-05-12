@@ -17,10 +17,8 @@ try:
             test_input = row['input']
             expected = row['expected_result']
 
-            # RUN the selenium function and get the OUTPUT
             actual_output = TimeTest.test_time_limit(test_input)
 
-            # COMPARE
             if actual_output == expected:
                 status = "PASS"
             else:

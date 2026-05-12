@@ -19,10 +19,8 @@ try:
             expected1 = row['expected_result1']
             expected2 = row['expected_result2']
 
-            # RUN the selenium function and get the OUTPUT
             actual_output = gradeTest.test_grade_settings(test_input1, test_input2)
             expected = f"Max: {test_input1}, Pass: {test_input2}.00"
-            # COMPARE
             if actual_output == expected or expected1 == actual_output or expected2 == actual_output:
                 status = "PASS"
             else:
