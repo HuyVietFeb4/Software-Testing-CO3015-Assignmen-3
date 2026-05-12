@@ -1,0 +1,7 @@
+test_case_id,input,expected_result
+TC-003-001,-1,This duration cannot be negative.
+TC-003-002,0,0
+TC-003-003,1,1
+TC-003-015,50,50
+TC-003-016,-1,This duration cannot be negative.
+TC-003-017,50,50
