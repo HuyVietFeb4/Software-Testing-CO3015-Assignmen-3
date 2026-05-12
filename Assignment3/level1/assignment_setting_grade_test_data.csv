@@ -1,0 +1,12 @@
+test_case_id,input1,input2,expected_result1,expected_result2
+TC-003-004,90,50,90,50
+TC-003-005,100,abc,100,You must enter a number here.
+TC-003-006,100,140,100,The grade to pass can not be greater than the maximum possible grade 100
+TC-003-007,-5,-10,Invalid grade value. This must be an integer between 1 and 100,-10
+TC-003-008,150,50,Invalid grade value. This must be an integer between 1 and 100,50
+TC-003-009,!!!,50,Invalid grade value. This must be an integer between 1 and 100,50
+TC-003-010,1.1,50,Invalid grade value. This must be an integer between 1 and 100,50
+TC-003-011,100,50,100,50
+TC-003-012,100,150,100,The grade to pass can not be greater than the maximum possible grade 100
+TC-003-013,1000,50,Invalid grade value. This must be an integer between 1 and 100,50
+TC-003-014,100,a,100,You must enter a number here.
