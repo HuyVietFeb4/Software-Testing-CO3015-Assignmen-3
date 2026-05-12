@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 import csv
+import time
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.common.exceptions import NoSuchElementException
@@ -21,7 +22,7 @@ class TimeLimitTest:
             driver.find_element(By.ID, row['pass_id']).send_keys(row['password'])
             driver.find_element(By.ID, row['login_btn_id']).click()
         except NoSuchElementException:
-            pass
+            pass 
 
         driver.get(row['test_url'])
         
@@ -41,11 +42,13 @@ class TimeLimitTest:
         time_field.clear()
         time_field.send_keys(str(row['input_value']))
         
+        start_save = time.time()
         driver.find_element(By.ID, row['save_btn_id']).click()
-
+        end_save = time.time()
+        duration = end_save - start_save
         try:
             error_element = driver.find_element(By.ID, row['error_id'])
-            return error_element.text
+            return error_element.text, duration
         except NoSuchElementException:
             driver.get(row['test_url'])
             try:
@@ -54,7 +57,7 @@ class TimeLimitTest:
                 pass
             
             raw_val = driver.find_element(By.ID, row['input_id']).get_attribute("value")
-            return str(int(float(raw_val))) if raw_val.replace('.', '', 1).isdigit() else raw_val
+            return str(int(float(raw_val))) if raw_val.replace('.', '', 1).isdigit() else raw_val, duration
 
     def quit(self):
         self.driver.quit()
